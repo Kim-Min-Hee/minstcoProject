@@ -10,15 +10,13 @@ import java.util.Map;
 public interface MemberService {
 
 
-   // public MemberVO insertMember  (MemberVO memberVO) throws  Exception;
-
     public boolean joinCheck (MemberVO memberVO) throws Exception;
-
-    public boolean idCheck(Map<String,Object> map)throws Exception;
 
     public boolean loginCheck(MemberVO memberVO, HttpSession session);
 
     public MemberVO viewMember(MemberVO memberVO);
+
+    public int idCheck(String id);
 
 
 }

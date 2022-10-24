@@ -8,7 +8,6 @@ import com.minstco.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import sun.lwawt.macosx.CSystemTray;
 
 import javax.servlet.http.HttpSession;
 import java.awt.*;
@@ -33,39 +32,42 @@ public class MemberController  {
     //아이디 중복확인 요청
     @ResponseBody
     @RequestMapping(value = "idCheck" , method = RequestMethod.POST)
-    public String idCheck (@RequestBody Map<String,Object> map) throws Exception {
-        for(String key : map.keySet()) {
-            System.out.println("map value :: " + map.get(key)); //map.get("id")
-        }
-        JSONObject jsonobj = new JSONObject(map);
-        try{
-            boolean idchk = memberService.idCheck(map);
-            jsonobj.put("status","success");
-            if(idchk){
-                jsonobj.put("result","success");
-                jsonobj.put("message","사용 가능함 id 입니다.");
-            }else{
-                jsonobj.put("result","failed");
-                jsonobj.put("message","이미 존재하는 id 입니다.");
-            }
-        }catch (Exception e){
-            jsonobj.put("status","failed");
-            jsonobj.put("message",e.getMessage());
+    public class UserController {
+
+        @Autowired
+        private MemberService memberService;
+
+        public int idCheck(@RequestParam("id") String id){
+            int cnt = memberService.idCheck(id);
+            return cnt;
         }
 
-        //jsonobj = memberService.idCheck(map);
-        return jsonobj.toString();
     }
 
-//    @ResponseBody
-//    @RequestMapping(value = "joinCheck" , method = RequestMethod.POST)
-//    public String joinCheck (MemberVO memberVO) throws Exception {
-//        System.out.println("controller : "+memberVO.getName());
-//        System.out.println("controller : "+memberVO.getPhoneNumber());
-//        boolean result =  memberService.joinCheck(memberVO);
-//        return String.valueOf(result);
-//    }
 
+//    public String idCheck (@RequestBody Map<String,Object> map) throws Exception {
+//        for(String key : map.keySet()) {
+//            System.out.println("map value :: " + map.get(key)); //map.get("id")
+//        }
+//        JSONObject jsonobj = new JSONObject(map);
+//        try{
+//            boolean idchk = memberService.idCheck(map);
+//            jsonobj.put("status","success");
+//            if(idchk){
+//                jsonobj.put("result","success");
+//                jsonobj.put("message","사용 가능함 id 입니다.");
+//            }else{
+//                jsonobj.put("result","failed");
+//                jsonobj.put("message","이미 존재하는 id 입니다.");
+//            }
+//        }catch (Exception e){
+//            jsonobj.put("status","failed");
+//            jsonobj.put("message",e.getMessage());
+//        }
+//
+//        //jsonobj = memberService.idCheck(map);
+//        return jsonobj.toString();
+//    }
 
     @RequestMapping(value = "join",method = RequestMethod.POST)
     @ResponseBody

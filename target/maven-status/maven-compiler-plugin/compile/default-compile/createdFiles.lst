@@ -2,6 +2,7 @@ com/minstco/controller/member/MemberController.class
 com/minstco/dao/MemberDAO.class
 com/minstco/service/MemberService.class
 com/minstco/controller/MainController.class
+com/minstco/controller/member/MemberController$UserController.class
 com/minstco/vo/LoginVO.class
 com/minstco/service/MemberServiceImpl.class
 com/minstco/vo/MemberVO.class

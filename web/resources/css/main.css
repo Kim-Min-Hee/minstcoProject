@@ -39,14 +39,17 @@ a{
     width: 100%;
     height: 150px;
 }
-/* 로고 영역 */
-/*.logo_area{*/
-/*    width: 25%;*/
-/*    height: 100%;*/
-/*    background-color: red;*/
-/*    float: left;*/
-/*}*/
-/* 검색 박스 영역 */
+ /*로고 영역*/
+.logo_area{
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+.logo_area img{
+    width: 100%;
+    height: 100%;
+}
+ /*검색 박스 영역*/
 .search_area{
     width: 50%;
     height: 100%;

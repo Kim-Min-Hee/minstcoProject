@@ -14,31 +14,25 @@ function checkAll() {
     }
 
     console.log('id check :: ',idCheck);
+
     if(!idCheck){
         alert('아이디가 이미 존재합니다.')
-    }else {
-        alert('사용 가능한 아이디 입니다.')
-    }
+    } else if (!checkPassword(id, password, passwordCheck)) {
 
-    if (!checkPassword(id, password, passwordCheck)) {
         return false;
-    }
-    if (!checkName(name)) {
+    } else if (!checkName(name)) {
         return false;
-    }
-    if (!checkEmail(email)) {
+    }else if (!checkEmail(email)) {
         return false;
-    }
-    if (!checkPhoneNumber(phoneNumber)) {
+    }else if (!checkPhoneNumber(phoneNumber)) {
         return false;
-    }
-    if(!allCheck(id,name,phoneNumber)){
+    } else if(!allCheck(id,name,phoneNumber)){
         console.log('allcheck');
         return false;
     }
 
-        // console.log('before summit');
-        // memberForm.submit();
+        console.log('before summit');
+        memberForm.submit();
         return true;
 
     //console.log('test1');
@@ -70,6 +64,7 @@ function checkId(id) {
 function fn_idCheck(){
 
     var id = document.getElementById('id').value;
+
         $.ajax({
             url: "idCheck",
             type: "POST",

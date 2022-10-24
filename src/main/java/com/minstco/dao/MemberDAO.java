@@ -16,23 +16,13 @@ public class MemberDAO {
     @Autowired
     private SqlSession sqlSession;
 
-//    public int insertMember(MemberVO memberVO) {
-//        return sqlSession.insert("member.memberInsert",memberVO);
-//    }
+    private  static final String NAMESPACE = "com.mysite.mapper.UserMapper";
 
-    public List<Map<String,Object>> idCheck(Map<String,Object> map) throws Exception{
-        //int result = sqlSession.selectOne("member.idCheck",memberVO);
-        //sqlSession.select("member.idCheck",map);
-        List<Map<String,Object>> list = new ArrayList();
-        list = sqlSession.selectList("member.idCheck", map);
-
-        for(Map<String,Object> map2 : list){
-            System.out.println("select value :: "+map2);
-        }
-
-        System.out.println(map);
-        return list;
+    public int idCheck(String id){
+        int cnt = sqlSession.selectOne(NAMESPACE+".idCheck",id);
+        return cnt;
     }
+
 
     public boolean joinCheck(MemberVO memberVO) throws Exception{
         boolean check = false;

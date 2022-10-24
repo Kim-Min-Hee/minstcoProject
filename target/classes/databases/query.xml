@@ -9,10 +9,15 @@
         values('${id}','${password}','${name}','${address}','${phoneNumber}','${email}','${gender}','C','${0.05}','${0}','${0}',now());
     </insert>
 
-    <select id="idCheck"  parameterType="map" resultType="map">
-        SELECT id
-        FROM members
-        WHERE id = #{id}
+<!--    <select id="idCheck"  parameterType="map" resultType="map">-->
+<!--        SELECT id-->
+<!--        FROM members-->
+<!--        WHERE id = #{id}-->
+<!--    </select>-->
+
+
+    <select id="idCheck" parameterType="String" resultType="int">
+        SELECT COUNT(id) FROM members WHERE id=#{id}
     </select>
 
     <select id="joinCheck" resultType="int" >

@@ -13,7 +13,6 @@
     <meta charset="UTF-8">
     <title>Minstco HomePage</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
-
 </head>
 <body>
 <%--<%@include file="menu.jsp"%>--%>
@@ -46,9 +45,9 @@
              </ul>
          </div>
          <div class="top_area">
-<%--             <div class="logo_area">--%>
-<%--                 <a href="/main"></a>--%>
-<%--             </div>--%>
+             <div class="logo_area">
+                 <a href="/main"><img src="/resources/img/logo.JPG"></a>
+             </div>
              <div class="search_area">
                  <h1>Search area</h1>
              </div>

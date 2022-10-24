@@ -16,25 +16,10 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     MemberDAO memberDAO;
 
-//    public MemberVO insertMember(MemberVO memberVO) throws Exception {
-//        //db와 연결 시작. (insert)
-//        memberDAO.insertMember(memberVO);
-//
-//        return memberVO;
-//    }
+    public int idCheck(String id){
+        int cnt = memberDAO.idCheck(id);
 
-    public boolean idCheck(Map<String,Object> map)throws Exception {
-        //int result = memberDAO.idCheck(memberVO);
-        boolean idchk = false;
-        List list = memberDAO.idCheck(map);
-        if(list.size()>0) {
-            //id 존재
-            idchk = false;
-        }else{
-            idchk = true;
-        }
-        //System.out.println("service : "+result);
-        return idchk;
+        return cnt;
     }
 
     public boolean joinCheck (MemberVO memberVO) throws Exception{
@@ -43,6 +28,7 @@ public class MemberServiceImpl implements MemberService {
         System.out.println(result);
         return result;
     }
+
 
 
     public boolean loginCheck(MemberVO memberVO, HttpSession session) {

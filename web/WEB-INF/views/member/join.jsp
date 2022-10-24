@@ -25,8 +25,10 @@
             <div class="id_wrap">
                 <div class="id_name">아이디</div>
                 <div class="id_input_box">
-                    <input class="id_input" id="id" name="id">
-                    <button class="idCheck" type="button" id="idCheck" onclick="fn_idCheck();">아이디 중복 검사</button>
+                    <input class="id_input" id="id" name="id" placeholder="your id" autocomplete="username" required oninput="checkId()"/>
+                    <span class="id_ok">사용 가능한 아이디 입니다.</span>
+                    <span class="id_already">이미 사용중인 아이디 입니다.</span>
+<%--                    <button class="idCheck" type="button" id="idCheck" onclick="fn_idCheck();">아이디 중복 검사</button>--%>
                 </div>
             </div>
             <%--            <div class="join_button_wrap">--%>

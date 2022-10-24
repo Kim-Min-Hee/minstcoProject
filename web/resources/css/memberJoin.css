@@ -48,12 +48,12 @@
     border: none;
     font-size: 28px;
 }
-.id_input_check1{
-    color: green;
+.id_ok{
+    color: #fff;
     display: none;
 }
-.id_input_check2{
-    color: red;
+.id_already{
+    color: #6A82FB;
     display: none;
 }
 /* 비밀번호 영역 */
